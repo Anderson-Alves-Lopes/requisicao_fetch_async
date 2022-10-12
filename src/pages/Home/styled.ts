@@ -20,5 +20,8 @@ export const Container = styled.div`
      padding:10px;
      font-size:40px;
      
+     @media (max-width:350px){
+        font-size:33px;
+       }
    }
 `;
