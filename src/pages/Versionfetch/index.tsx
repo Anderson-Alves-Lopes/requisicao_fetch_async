@@ -20,6 +20,10 @@ export const Versionfetch = () =>{
       .then((json)=>{
         setLoading(false);
         setMovies(json);
+      })
+      .catch((err)=>{
+        setLoading(false);
+        
       });
     }
     
@@ -29,9 +33,13 @@ export const Versionfetch = () =>{
     return(
         <div>
       
-      <C.Container>
+      <C.Container min>
+        {movies.length > 0 &&
+         <div>
          <h2>Total de Filmes em cartaz : {movies.length}</h2>
          <p>Versão fetch</p>
+         </div>
+        }
           {loading &&
            <C.Container min>
             <h1>Carregando...</h1>
@@ -47,7 +55,9 @@ export const Versionfetch = () =>{
            ))}
          </div>
          
-           
+         {!loading && movies.length === 0 &&
+             <h2>Tente novamente mais tarde.</h2>
+         }  
       </C.Container>
       
       </div>

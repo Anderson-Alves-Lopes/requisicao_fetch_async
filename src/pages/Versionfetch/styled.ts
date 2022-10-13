@@ -6,7 +6,7 @@ type ContainerProps = {
 }
 export const Container = styled.div<ContainerProps>`
     max-width:1000px;
-    height: ${(props)=> props.min ? '100vh' : 'auto'};
+    min-height: ${(props)=> props.min ? '100vh' : 'auto'};
     display:flex;
     flex-direction:column;
     margin:auto;

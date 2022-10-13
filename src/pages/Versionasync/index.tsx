@@ -13,12 +13,16 @@ export const Versionasync = () =>{
    
 
     const link = async () =>{
+      try{
       setLoading(true);
       let response = await fetch('https://api.b7web.com.br/cinema/');
       let json = await response.json();
       setLoading(false);
       setMovies(json);
-       
+      } catch(err){
+        setLoading(false); 
+       setMovies([]);
+      }
     }
     
      
@@ -28,11 +32,15 @@ export const Versionasync = () =>{
     return(
         <div>
         
-      <C.Container>
-      
+      <C.Container min>
+         { movies.length > 0 &&
+         <div>
          <h2>Total de Filmes em cartaz: {movies.length}</h2>
          <p>Versão async</p>
-
+         </div>
+         }
+         
+        
          {loading && 
            <C.Container min>
              <h1>Carregando....</h1>
@@ -48,7 +56,9 @@ export const Versionasync = () =>{
            ))}
          </div>
          
-           
+           {!loading && movies.length=== 0 &&
+             <h2>Tente novamente mais tarde.</h2>
+           }
       </C.Container>
       </div>
     );

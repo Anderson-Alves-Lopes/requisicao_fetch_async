@@ -52,7 +52,7 @@ export const App = () =>{
         </div>
         <div className="footerText">
            <p>Todos direitos reservados</p>
-           <p>Projetos feitos me Reactjs</p>
+           <p>Projeto feito me Reactjs</p>
            <p>Anderson Alves Lopes</p> 
         </div>
       </A.Footer>
