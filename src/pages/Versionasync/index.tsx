@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import * as C from './styled';
 import {Movie} from '../../types/Movie';
+import { api } from '../../types/api';
 
 
 
@@ -15,8 +16,7 @@ export const Versionasync = () =>{
     const link = async () =>{
       try{
       setLoading(true);
-      let response = await fetch('https://api.b7web.com.br/cinema/');
-      let json = await response.json();
+      let json = await api.getReq();
       setLoading(false);
       setMovies(json);
       } catch(err){
